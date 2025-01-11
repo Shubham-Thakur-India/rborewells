@@ -10,9 +10,9 @@
             margin: 20px;
         }
         .invoice-container {
-            max-width: 800px;
+            max-width: 640px; /* Reduced from 800px */
             margin: auto;
-            padding: 20px;
+            padding: 16px; /* Reduced from 20px */
             border: 1px solid #ddd;
             border-radius: 8px;
         }
@@ -23,13 +23,13 @@
             margin: 0;
         }
         .header p {
-            margin: 5px 0;
+            margin: 4px 0; /* Reduced margin */
         }
         .details {
-            margin: 20px 0;
+            margin: 16px 0; /* Reduced from 20px */
         }
         .details .client, .details .company {
-            width: 48%;
+            width: 38%; /* Reduced from 48% */
             display: inline-block;
             vertical-align: top;
         }
@@ -38,13 +38,13 @@
         }
         .input-field {
             width: 100%;
-            padding: 8px;
-            margin: 5px 0;
+            padding: 6px; /* Reduced from 8px */
+            margin: 4px 0; /* Reduced margin */
             border: 1px solid #ddd;
             border-radius: 4px;
         }
         .table-container {
-            margin-top: 20px;
+            margin-top: 16px; /* Reduced from 20px */
         }
         table {
             width: 100%;
@@ -52,7 +52,7 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 6px; /* Reduced from 8px */
             text-align: left;
         }
         th {
@@ -60,7 +60,7 @@
         }
         .total {
             text-align: right;
-            margin-top: 10px;
+            margin-top: 8px; /* Reduced from 10px */
             font-weight: bold;
         }
     </style>
@@ -85,7 +85,7 @@
             </div>
             <div class="company">
                 <h3>Estimate Details</h3>
-                <p><strong>Created By :</strong> <input type="text" id="clientName" class="input-field" placeholder="Enter Client Name"></p></p>
+                <p><strong>Created By :</strong> <input type="text" id="CreatorName" class="input-field" placeholder="Enter Your Name"></p>
                 <p><strong>Date:</strong> <input type="date" id="invoiceDate" class="input-field"></p>
             </div>
         </div>
@@ -106,86 +106,86 @@
                     <tr>
                         <td>1</td>
                         <td>Borewell Drilling</td>
-                        <td><input type="number" id="quantity1" class="input-field" value="150" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate1" class="input-field" value="50" oninput="calculateAmount()"></td>
-                        <td><span id="amount1">7500</span></td>
+                        <td><input type="number" id="quantity1" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate1" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount1">0</span></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Casting MS Pipe</td>
-                        <td><input type="number" id="quantity2" class="input-field" value="30" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate2" class="input-field" value="120" oninput="calculateAmount()"></td>
-                        <td><span id="amount2">3600</span></td>
+                        <td><input type="number" id="quantity2" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate2" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount2">0</span></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Welding</td>
-                        <td><input type="number" id="quantity3" class="input-field" value="10" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate3" class="input-field" value="200" oninput="calculateAmount()"></td>
-                        <td><span id="amount3">2000</span></td>
+                        <td><input type="number" id="quantity3" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate3" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount3">0</span></td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Filter</td>
-                        <td><input type="number" id="quantity4" class="input-field" value="2" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate4" class="input-field" value="1500" oninput="calculateAmount()"></td>
-                        <td><span id="amount4">3000</span></td>
+                        <td><input type="number" id="quantity4" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate4" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount4">0</span></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>8 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity5" class="input-field" value="10" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate5" class="input-field" value="100" oninput="calculateAmount()"></td>
-                        <td><span id="amount5">1000</span></td>
+                        <td><input type="number" id="quantity5" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate5" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount5">0</span></td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>6 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity6" class="input-field" value="15" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate6" class="input-field" value="90" oninput="calculateAmount()"></td>
-                        <td><span id="amount6">1350</span></td>
+                        <td><input type="number" id="quantity6" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate6" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount6">0</span></td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>5 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity7" class="input-field" value="20" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate7" class="input-field" value="80" oninput="calculateAmount()"></td>
-                        <td><span id="amount7">1600</span></td>
+                        <td><input type="number" id="quantity7" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate7" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount7">0</span></td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>4 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity8" class="input-field" value="25" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate8" class="input-field" value="70" oninput="calculateAmount()"></td>
-                        <td><span id="amount8">1750</span></td>
+                        <td><input type="number" id="quantity8" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate8" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount8">0</span></td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>Cutting</td>
-                        <td><input type="number" id="quantity9" class="input-field" value="50" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate9" class="input-field" value="30" oninput="calculateAmount()"></td>
-                        <td><span id="amount9">1500</span></td>
+                        <td><input type="number" id="quantity9" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate9" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount9">0</span></td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>Flashing</td>
-                        <td><input type="number" id="quantity10" class="input-field" value="5" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate10" class="input-field" value="500" oninput="calculateAmount()"></td>
-                        <td><span id="amount10">2500</span></td>
+                        <td><input type="number" id="quantity10" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate10" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount10">0</span></td>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td>Dalwai</td>
-                        <td><input type="number" id="quantity11" class="input-field" value="1" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate11" class="input-field" value="3000" oninput="calculateAmount()"></td>
-                        <td><span id="amount11">3000</span></td>
+                        <td><input type="number" id="quantity11" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate11" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount11">0</span></td>
                     </tr>
                     <tr>
                         <td>12</td>
                         <td>Small Vehicle Filter</td>
-                        <td><input type="number" id="quantity12" class="input-field" value="3" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate12" class="input-field" value="400" oninput="calculateAmount()"></td>
-                        <td><span id="amount12">1200</span></td>
+                        <td><input type="number" id="quantity12" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate12" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount12">0</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -193,7 +193,7 @@
         
         <!-- Total Amount Section -->
         <div class="total">
-            <p><strong>Total Amount (₹):</strong> ₹<span id="totalAmount">29,400</span></p>
+            <p><strong>Total Amount (₹):</strong> ₹<span id="totalAmount">0</span></p>
         </div>
     </div>
 
