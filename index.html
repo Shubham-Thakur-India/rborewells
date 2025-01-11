@@ -56,6 +56,10 @@
             margin-top: 10px;
             font-weight: bold;
         }
+        .input-field {
+            width: 100px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -95,30 +99,54 @@
                     <tr>
                         <td>1</td>
                         <td>Borewell Drilling (150 ft)</td>
-                        <td>150</td>
-                        <td>50</td>
-                        <td>7500</td>
+                        <td><input type="number" id="quantity1" class="input-field" value="150" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate1" class="input-field" value="50" oninput="calculateAmount()"></td>
+                        <td><span id="amount1">7500</span></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>PVC Casing Pipe</td>
-                        <td>30</td>
-                        <td>120</td>
-                        <td>3600</td>
+                        <td><input type="number" id="quantity2" class="input-field" value="30" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate2" class="input-field" value="120" oninput="calculateAmount()"></td>
+                        <td><span id="amount2">3600</span></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Pump Installation</td>
-                        <td>1</td>
-                        <td>2500</td>
-                        <td>2500</td>
+                        <td><input type="number" id="quantity3" class="input-field" value="1" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate3" class="input-field" value="2500" oninput="calculateAmount()"></td>
+                        <td><span id="amount3">2500</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="total">
-            <p><strong>Total Amount (₹):</strong> 13,600</p>
+            <p><strong>Total Amount (₹):</strong> ₹<span id="totalAmount">13,600</span></p>
         </div>
     </div>
+
+    <script>
+        function calculateAmount() {
+            // Get values for each item
+            var quantity1 = document.getElementById('quantity1').value;
+            var rate1 = document.getElementById('rate1').value;
+            var amount1 = quantity1 * rate1;
+            document.getElementById('amount1').innerText = amount1;
+
+            var quantity2 = document.getElementById('quantity2').value;
+            var rate2 = document.getElementById('rate2').value;
+            var amount2 = quantity2 * rate2;
+            document.getElementById('amount2').innerText = amount2;
+
+            var quantity3 = document.getElementById('quantity3').value;
+            var rate3 = document.getElementById('rate3').value;
+            var amount3 = quantity3 * rate3;
+            document.getElementById('amount3').innerText = amount3;
+
+            // Calculate total amount
+            var total = parseFloat(amount1) + parseFloat(amount2) + parseFloat(amount3);
+            document.getElementById('totalAmount').innerText = total.toFixed(2);
+        }
+    </script>
 </body>
 </html>
