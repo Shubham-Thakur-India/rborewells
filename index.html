@@ -10,9 +10,9 @@
             margin: 20px;
         }
         .invoice-container {
-            max-width: 800px
+            max-width: 640px; /* Reduced from 800px by 20% */
             margin: auto;
-            padding: 20px; 
+            padding: 16px; /* Reduced from 20px by 20% */
             border: 1px solid #ddd;
             border-radius: 8px;
         }
@@ -23,13 +23,13 @@
             margin: 0;
         }
         .header p {
-            margin: 6px 0;
+            margin: 4px 0; /* Reduced margin by 20% */
         }
         .details {
-            margin: 20px 0; 
+            margin: 16px 0; /* Reduced margin by 20% */
         }
         .details .client, .details .company {
-            width: 48%; /* Reduced width of client and company boxes */
+            width: 38%; /* Reduced width by 20% */
             display: inline-block;
             vertical-align: top;
         }
@@ -37,14 +37,14 @@
             text-align: right;
         }
         .input-field {
-            width: 60%;
-            padding: 6px; /* Reduced from 8px */
-            margin: 4px 0; /* Reduced margin */
+            width: 100%;
+            padding: 6px; /* Reduced padding by 20% */
+            margin: 4px 0; /* Reduced margin by 20% */
             border: 1px solid #ddd;
             border-radius: 4px;
         }
         .table-container {
-            margin-top: 16px; /* Reduced from 20px */
+            margin-top: 16px; /* Reduced margin by 20% */
         }
         table {
             width: 100%;
@@ -52,7 +52,7 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 6px; /* Reduced from 8px */
+            padding: 6px; /* Reduced padding by 20% */
             text-align: left;
         }
         th {
@@ -60,7 +60,7 @@
         }
         .total {
             text-align: right;
-            margin-top: 8px; /* Reduced from 10px */
+            margin-top: 8px; /* Reduced margin by 20% */
             font-weight: bold;
         }
     </style>
@@ -83,7 +83,7 @@
                 <p><strong>Address:</strong> <input type="text" id="clientAddress" class="input-field" placeholder="Enter Client Address"></p>
                 <p><strong>Contact:</strong> <input type="text" id="clientContact" class="input-field" placeholder="Enter Client Contact Number"></p>
             </div>
-            <div class="company" style="text-align: right;"> <!-- Right align for the company section -->
+            <div class="company">
                 <h3>Estimate Details</h3>
                 <p><strong>Created By :</strong> <input type="text" id="clientName" class="input-field" placeholder="Enter Client Name"></p>
                 <p><strong>Date:</strong> <input type="date" id="invoiceDate" class="input-field"></p>
@@ -155,19 +155,4 @@
                     <tr>
                         <td>8</td>
                         <td>4 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity8" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate8" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><span id="amount8">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Cutting</td>
-                        <td><input type="number" id="quantity9" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate9" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><span id="amount9">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Flashing</td>
-                        <td><input type="number" id="quantity10" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate10" class="input-field" value="0" oninput="calculateAmount()"><
+                        <td><input type="number" id="quantity8" class="input-field" value="0" oninput="calculateA
