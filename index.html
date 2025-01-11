@@ -10,9 +10,9 @@
             margin: 20px;
         }
         .invoice-container {
-            max-width: 640px; /* Reduced from 800px by 20% */
+            max-width: 800px;
             margin: auto;
-            padding: 16px; /* Reduced from 20px by 20% */
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
         }
@@ -23,13 +23,13 @@
             margin: 0;
         }
         .header p {
-            margin: 4px 0; /* Reduced margin by 20% */
+            margin: 5px 0;
         }
         .details {
-            margin: 16px 0; /* Reduced margin by 20% */
+            margin: 20px 0;
         }
         .details .client, .details .company {
-            width: 38%; /* Reduced width by 20% */
+            width: 48%;
             display: inline-block;
             vertical-align: top;
         }
@@ -38,13 +38,13 @@
         }
         .input-field {
             width: 100%;
-            padding: 6px; /* Reduced padding by 20% */
-            margin: 4px 0; /* Reduced margin by 20% */
+            padding: 8px;
+            margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
         .table-container {
-            margin-top: 16px; /* Reduced margin by 20% */
+            margin-top: 20px;
         }
         table {
             width: 100%;
@@ -52,7 +52,7 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 6px; /* Reduced padding by 20% */
+            padding: 8px;
             text-align: left;
         }
         th {
@@ -60,7 +60,7 @@
         }
         .total {
             text-align: right;
-            margin-top: 8px; /* Reduced margin by 20% */
+            margin-top: 10px;
             font-weight: bold;
         }
     </style>
@@ -155,4 +155,67 @@
                     <tr>
                         <td>8</td>
                         <td>4 Inch PVC Casting</td>
-                        <td><input type="number" id="quantity8" class="input-field" value="0" oninput="calculateA
+                        <td><input type="number" id="quantity8" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate8" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount8">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Cutting</td>
+                        <td><input type="number" id="quantity9" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate9" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount9">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Flashing</td>
+                        <td><input type="number" id="quantity10" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate10" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount10">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Dalwai</td>
+                        <td><input type="number" id="quantity11" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate11" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount11">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Small Vehicle Filter</td>
+                        <td><input type="number" id="quantity12" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><input type="number" id="rate12" class="input-field" value="0" oninput="calculateAmount()"></td>
+                        <td><span id="amount12">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Total Amount Section -->
+        <div class="total">
+            <p><strong>Total Amount (₹):</strong> ₹<span id="totalAmount">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Set the date input field to today's date
+        document.getElementById("invoiceDate").value = new Date().toISOString().split('T')[0];
+
+        function calculateAmount() {
+            var total = 0;
+
+            // Loop through each row and calculate the amount
+            for (var i = 1; i <= 12; i++) {
+                var quantity = document.getElementById('quantity' + i).value;
+                var rate = document.getElementById('rate' + i).value;
+                var amount = quantity * rate;
+                document.getElementById('amount' + i).innerText = amount;
+                total += parseFloat(amount);
+            }
+
+            // Update total amount
+            document.getElementById('totalAmount').innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
