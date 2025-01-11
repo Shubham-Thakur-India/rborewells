@@ -283,7 +283,7 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('p', 'mm', 'a4');
             
-            doc.html(document.getElementById('invoice-content'), {
+            doc.html(document.getElementById('invoice-container'), {
                 callback: function (doc) {
                     doc.save('invoice.pdf');
                 },
