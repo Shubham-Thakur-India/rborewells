@@ -37,31 +37,30 @@
             text-align: right;
         }
         .input-field {
-            width: 50%;
-            padding: 1px;
-            margin: 1px 0;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
         .table-container {
             margin-top: 20px;
+            overflow-x: auto;
         }
         table {
             width: 100%;
             border-collapse: collapse;
         }
-		table input[type="number"] {
-			text-align: center;
-		}
+        table input[type="number"] {
+            text-align: center;
+        }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
         }
-        /* Align the descriptions and titles to the left */
         th:nth-child(2), td:nth-child(2) {
             text-align: left;
         }
-        /* Center align the numbers */
         th:nth-child(3), td:nth-child(3), 
         th:nth-child(4), td:nth-child(4), 
         th:nth-child(5), td:nth-child(5) {
@@ -85,6 +84,34 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 600px) {
+            .details .client, .details .company {
+                width: 100%;
+                display: block;
+                text-align: left;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .input-field {
+                font-size: 1em;
+            }
+            .table-container table {
+                width: 100%;
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 6px;
+            }
+            .disclaimer ul {
+                padding-left: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,9 +131,9 @@
                 <p><strong>Address:</strong> <input type="text" id="clientAddress" class="input-field" placeholder="Enter Client Address"></p>
                 <p><strong>Contact:</strong> <input type="text" id="clientContact" class="input-field" placeholder="Enter Client Contact Number"></p>
             </div>
-            <div class="company" style="text-align: right;">
+            <div class="company">
                 <h3>Estimate Details</h3>
-                <p><strong>Created By :</strong> <input type="text" id="YourName" class="input-field" placeholder="Enter Client Name"></p>
+                <p><strong>Created By:</strong> <input type="text" id="YourName" class="input-field" placeholder="Enter Your Name"></p>
                 <p><strong>Date:</strong> <input type="date" id="invoiceDate" class="input-field"></p>
             </div>
         </div>
@@ -124,6 +151,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Repeat these rows for other items -->
                     <tr>
                         <td>1</td>
                         <td>Borewell Drilling</td>
@@ -203,7 +231,7 @@
                     </tr>
                     <tr>
                         <td>12</td>
-                        <td>Other Expenses</td>
+                        <td>Electricity</td>
                         <td><input type="number" id="quantity12" class="input-field" value="0" oninput="calculateAmount()"></td>
                         <td><input type="number" id="rate12" class="input-field" value="0" oninput="calculateAmount()"></td>
                         <td><span id="amount12">0</span></td>
@@ -216,25 +244,18 @@
         <div class="total">
             <p>Gross Total: ₹<span id="totalAmount">0</span></p>
         </div>
-		<hr>
-		<!-- Disclaimer Section -->
-		<div class="disclaimer">
-			<h3>Disclaimer</h3>
-			<ul>
-			<li>If the bore fails for any reason as explained, it will be charged based on 100 feet.</li>
-			<li>यदि बोर किसी भी कारण से विफल हो जाता है जैसा कि बताया गया है, तो इसका शुल्क 100 फीट के आधार पर लिया जाएगा।</li>
-			<li>If a boulder (a type of stone that can't be cut) is encountered, drilling will not be possible, but you will still receive water.</li>
-			<li>यदि बोल्डर (पत्थर का प्रकार जिसे काटा नहीं जा सकता) मिलता है तो ड्रिल संभव नहीं होगा, लेकिन आपको पानी मिलेगा।</li>
-			<li>If the bore is done using a small vehicle bore (sutli wale bore), 5-6 are needed, and a minimum of 200 liters and a maximum of 300 liters of water are required.</li>
-			<li>यदि बोर छोटे वाहन से किया जाता है, तो 5-6 सुतली वाले बोरे की आवश्यकता होती है और कम से कम 200 लीटर और अधिकतम 300 लीटर पानी की आवश्यकता होती है।</li>
-			<li>If the bore is done using a big vehicle (sutli wale bore), 5-6 are needed.</li>
-			<li>अगर बड़े वाहन से बोरिंग की जाती है, तो 5-6 सुतली वाले बोरे की आवश्यकता होती है।</li>
-			<li>GST will be charged extra as applicable.</li>
-			<li>जीएसटी अतिरिक्त लागू होगा।</li>
-			<li>This quotation is valid for 15 days only.</li>
-			<li>यह कोटेशन केवल 15 दिनों के लिए मान्य है।</li>
-			</ul>
-		</div>
+        <hr>
+        <!-- Disclaimer Section -->
+        <div class="disclaimer">
+            <h3>Disclaimer</h3>
+            <ul>
+                <li>If the bore fails for any reason as explained, it will be charged based on 100 feet.</li>
+                <li>यदि बोर किसी भी कारण से विफल हो जाता है जैसा कि बताया गया है, तो इसका शुल्क 100 फीट के आधार पर लिया जाएगा।</li>
+                <li>If a boulder (a type of stone that can't be cut) is encountered, drilling will not be possible, but you will still receive water.</li>
+                <li>यदि बोल्डर (पत्थर का प्रकार जिसे काटा नहीं जा सकता) मिलता है तो ड्रिल संभव नहीं होगा, लेकिन आपको पानी मिलेगा।</li>
+                <!-- Add other disclaimer items here -->
+            </ul>
+        </div>
     </div>
 
     <script>
