@@ -3,42 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send WhatsApp Message</title>
+    <title>Borewell Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .invoice-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0;
+        }
+        .details {
+            margin: 20px 0;
+        }
+        .details .client, .details .company {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .details .company {
+            text-align: right;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .total {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Send a Message on WhatsApp</h1>
-    <form id="whatsappForm">
-        <label for="phone">Phone Number (with country code):</label><br>
-        <input type="text" id="phone" name="phone" placeholder="e.g., 918123456789" required><br><br>
-        
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea><br><br>
-        
-        <label for="document">Attach a Document (optional):</label><br>
-        <input type="file" id="document" name="document"><br><br>
-        
-        <button type="button" onclick="sendWhatsAppMessage()">Send Message</button>
-    </form>
-
-    <script>
-        function sendWhatsAppMessage() {
-            const phone = document.getElementById('phone').value.trim();
-            const message = encodeURIComponent(document.getElementById('message').value.trim());
-            const documentInput = document.getElementById('document');
-            
-            if (!phone || !message) {
-                alert("Please fill out the phone number and message.");
-                return;
-            }
-
-            const url = `https://wa.me/${phone}?text=${message}`;
-
-            if (documentInput.files.length > 0) {
-                alert("WhatsApp does not support direct file uploads through this method. Please send the document manually after opening the chat.");
-            }
-
-            window.open(url, '_blank');
-        }
-    </script>
+    <div class="invoice-container">
+        <div class="header">
+            <h1>Borewell Service Invoice</h1>
+            <p><strong>Company Name:</strong> ABC Borewells</p>
+            <p><strong>Contact:</strong> +91 98765 43210 | abc.borewells@example.com</p>
+            <p><strong>Address:</strong> 123, Main Street, Your City, India</p>
+        </div>
+        <div class="details">
+            <div class="client">
+                <h3>Client Details</h3>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Address:</strong> 45, Example Lane, City</p>
+                <p><strong>Contact:</strong> +91 87654 32109</p>
+            </div>
+            <div class="company">
+                <h3>Invoice Details</h3>
+                <p><strong>Invoice #:</strong> BW12345</p>
+                <p><strong>Date:</strong> 11th January 2025</p>
+                <p><strong>Due Date:</strong> 25th January 2025</p>
+            </div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Rate (₹)</th>
+                        <th>Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Borewell Drilling (150 ft)</td>
+                        <td>150</td>
+                        <td>50</td>
+                        <td>7500</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>PVC Casing Pipe</td>
+                        <td>30</td>
+                        <td>120</td>
+                        <td>3600</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Pump Installation</td>
+                        <td>1</td>
+                        <td>2500</td>
+                        <td>2500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="total">
+            <p><strong>Total Amount (₹):</strong> 13,600</p>
+        </div>
+    </div>
 </body>
 </html>
