@@ -29,7 +29,7 @@
             margin: 16px 0; /* Reduced from 20px */
         }
         .details .client, .details .company {
-            width: 38%; /* Reduced from 48% */
+            width: 48%; /* Reduced width of client and company boxes */
             display: inline-block;
             vertical-align: top;
         }
@@ -83,9 +83,9 @@
                 <p><strong>Address:</strong> <input type="text" id="clientAddress" class="input-field" placeholder="Enter Client Address"></p>
                 <p><strong>Contact:</strong> <input type="text" id="clientContact" class="input-field" placeholder="Enter Client Contact Number"></p>
             </div>
-            <div class="company">
+            <div class="company" style="text-align: right;"> <!-- Right align for the company section -->
                 <h3>Estimate Details</h3>
-                <p><strong>Created By :</strong> <input type="text" id="CreatorName" class="input-field" placeholder="Enter Your Name"></p>
+                <p><strong>Created By :</strong> <input type="text" id="clientName" class="input-field" placeholder="Enter Client Name"></p>
                 <p><strong>Date:</strong> <input type="date" id="invoiceDate" class="input-field"></p>
             </div>
         </div>
@@ -170,52 +170,4 @@
                         <td>10</td>
                         <td>Flashing</td>
                         <td><input type="number" id="quantity10" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate10" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><span id="amount10">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>Dalwai</td>
-                        <td><input type="number" id="quantity11" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate11" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><span id="amount11">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>Small Vehicle Filter</td>
-                        <td><input type="number" id="quantity12" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><input type="number" id="rate12" class="input-field" value="0" oninput="calculateAmount()"></td>
-                        <td><span id="amount12">0</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Total Amount Section -->
-        <div class="total">
-            <p><strong>Total Amount (₹):</strong> ₹<span id="totalAmount">0</span></p>
-        </div>
-    </div>
-
-    <script>
-        // Set the date input field to today's date
-        document.getElementById("invoiceDate").value = new Date().toISOString().split('T')[0];
-
-        function calculateAmount() {
-            var total = 0;
-
-            // Loop through each row and calculate the amount
-            for (var i = 1; i <= 12; i++) {
-                var quantity = document.getElementById('quantity' + i).value;
-                var rate = document.getElementById('rate' + i).value;
-                var amount = quantity * rate;
-                document.getElementById('amount' + i).innerText = amount;
-                total += parseFloat(amount);
-            }
-
-            // Update total amount
-            document.getElementById('totalAmount').innerText = total.toFixed(2);
-        }
-    </script>
-</body>
-</html>
+                        <td><input type="number" id="rate10" class="input-field" value="0" oninput="calculateAmount()"><
