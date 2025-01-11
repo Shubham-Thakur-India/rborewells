@@ -38,8 +38,8 @@
         }
         .input-field {
             width: 50%;
-            padding: 8px;
-            margin: 5px 0;
+            padding: 1px;
+            margin: 1px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
@@ -50,13 +50,24 @@
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+			
+		th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: right;
+        }
+        /* Align the descriptions and titles to the left */
+        th:nth-child(2), td:nth-child(2) {
+            text-align: left;
+        }
+        /* Center align the numbers */
+        th:nth-child(3), td:nth-child(3), 
+        th:nth-child(4), td:nth-child(4), 
+        th:nth-child(5), td:nth-child(5) {
+            text-align: center;
         }
         th {
             background-color: #f4f4f4;
+        }
         }
         .total {
             text-align: right;
@@ -79,9 +90,8 @@
 <body>
     <div class="invoice-container">
         <div class="header">
-            <h1>Borewell Estimate</h1>
-            <p><strong>Rajput Borewells</strong></p>
-            <p>Expert Drilling for Reliable Water Solutions</p>
+            <h1>Rajput Borewells</h1>
+            <p><strong>Expert Drilling for Reliable Water Solutions</strong></p>
             <p><strong>Contact:</strong> +91 8982396864 | rajputborewells@example.com</p>
             <p><strong>Address:</strong> Santoshi Vihar, Ayodhya Bypass, Bhopal, MP (462021)</p>
         </div>
